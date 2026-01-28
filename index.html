@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goppalu Deepalu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Pattaya&family=Baloo+2:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* --- Custom Styles --- */
+    body {
+        scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        background-color: #F8F4E3; /* Warm creamy background */
+        background-image: url('https://images.unsplash.com/photo-1589808776648-a5c3dd644e1e?q=80&w=2070');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        color: #4A4A4A; /* Dark warm gray text */
+        font-family: 'Lora', serif; /* Default font for body */
+    }
+
+    /* Sikku Kolam vertical borders - authentic infinity loop design */
+    body::after,
+    html::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        width: 50px;
+        height: 100vh;
+        background-color: #3D1F1F; /* Deep maroon-brown */
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    /* Right border with clean Sikku Kolam pattern */
+    body::after {
+        right: 0;
+        background-image:
+            /* SVG-based kolam pattern */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="80" viewBox="0 0 50 80"><circle cx="25" cy="15" r="3" fill="white" opacity="0.95"/><circle cx="25" cy="40" r="3" fill="white" opacity="0.95"/><circle cx="25" cy="65" r="3" fill="white" opacity="0.95"/><path d="M 25 18 Q 15 27.5 25 37" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/><path d="M 25 18 Q 35 27.5 25 37" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/><path d="M 25 43 Q 15 52.5 25 62" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/><path d="M 25 43 Q 35 52.5 25 62" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/></svg>');
+        background-repeat: repeat-y;
+        background-position: center top;
+        background-size: 50px 80px;
+        box-shadow: inset 4px 0 12px rgba(0, 0, 0, 0.6);
+        border-left: 1px solid rgba(139, 69, 19, 0.4);
+    }
+
+    /* Left border with clean Sikku Kolam pattern */
+    html::before {
+        left: 0;
+        background-image:
+            /* SVG-based kolam pattern */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="80" viewBox="0 0 50 80"><circle cx="25" cy="15" r="3" fill="white" opacity="0.95"/><circle cx="25" cy="40" r="3" fill="white" opacity="0.95"/><circle cx="25" cy="65" r="3" fill="white" opacity="0.95"/><path d="M 25 18 Q 15 27.5 25 37" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/><path d="M 25 18 Q 35 27.5 25 37" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/><path d="M 25 43 Q 15 52.5 25 62" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/><path d="M 25 43 Q 35 52.5 25 62" stroke="white" stroke-width="2.5" fill="none" opacity="0.9" stroke-linecap="round"/></svg>');
+        background-repeat: repeat-y;
+        background-position: center top;
+        background-size: 50px 80px;
+        box-shadow: inset -4px 0 12px rgba(0, 0, 0, 0.6);
+        border-right: 1px solid rgba(139, 69, 19, 0.4);
+    }
+
+    /* Hide borders on mobile and tablets */
+    @media (max-width: 1024px) {
+        body::after,
+        html::before {
+            display: none;
+        }
+    }
+
+    /* Translucent overlay for better readability */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(248, 244, 227, 0.92); /* Warm creamy overlay with 92% opacity */
+        z-index: -1;
+        pointer-events: none;
+    }
+    .header {
+      background: linear-gradient(to right, #FAF8F2, #EFEAE0); /* Lighter, warmer gradient for header */
+      padding: 0.5rem 0 !important; /* Further reduced padding */
+      transition: box-shadow 0.3s ease;
+    }
+
+    .header.scrolled {
+      box-shadow: 0 4px 12px rgba(107, 66, 38, 0.15);
+    }
+    .header h1 {
+        font-family: 'Cinzel', serif; /* Elegant serif font */
+        color: #6B4226;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-align: center;
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 6px rgba(107, 66, 38, 0.25);
+    }
+    .header-logo {
+        width: 75px; /* Reduced by 50% from 150px */
+        height: 75px; /* Reduced by 50% from 150px */
+        object-fit: contain;
+        background: transparent !important;
+        border: none;
+        padding: 0;
+        margin: 0;
+        image-rendering: crisp-edges;
+    }
+
+    @media (max-width: 768px) {
+        .header-logo {
+            width: 50px; /* Reduced by 50% from 100px */
+            height: 50px; /* Reduced by 50% from 100px */
+        }
+        .header h1 {
+            font-size: 1.25rem;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .header h1 {
+            font-size: 1.75rem;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .header h1 {
+            font-size: 2rem;
+        }
+    }
+    .header p {
+        font-family: 'Lora', serif;
+        color: #5A5A4A;
+        text-align: center;
+    }
+    .nav-link {
+        font-family: 'Lora', serif;
+        color: #5A5A4A;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        font-size: 1.125rem; /* Increased font size */
+        padding: 0.5rem 1rem; /* Added padding for more clickable area */
+    }
+    .nav-link:hover {
+        color: #A0522D;
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+    }
+    .nav-link.active {
+        font-weight: 700;
+        color: #A0522D;
+        border-bottom: 2px solid #A0522D;
+    }
+
+    /* Product cards - circular/rounded image layout */
+    .product-card {
+        font-family: 'Lora', serif;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: visible;
+        background: linear-gradient(135deg, #FFFFFF 0%, #F5F0DB 100%);
+        border: 2px solid rgba(139, 69, 19, 0.15);
+        border-radius: 20px;
+        padding: 2rem 1.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(45, 80, 22, 0.05) 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .product-card:hover::before {
+        opacity: 1;
+    }
+
+    .product-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(107, 66, 38, 0.3), 0 12px 20px rgba(45, 80, 22, 0.2);
+        border-color: #8B4513;
+    }
+
+    /* Circular image container */
+    .product-card > div:first-child {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    .product-card img {
+        width: 200px !important;
+        height: 200px !important;
+        object-fit: cover;
+        border-radius: 50% !important;
+        border: 5px solid #FFFFFF;
+        box-shadow: 0 8px 20px rgba(107, 66, 38, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+    }
+
+    .product-card img::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        background: linear-gradient(135deg, #8B4513, #2D5016) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.1) rotate(3deg);
+        filter: brightness(1.08) contrast(1.08);
+        box-shadow: 0 12px 30px rgba(107, 66, 38, 0.35), 0 0 0 8px rgba(139, 69, 19, 0.1);
+    }
+
+    /* Decorative ring around image on hover */
+    .product-card > div:first-child::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border-radius: 50%;
+        border: 2px dashed rgba(139, 69, 19, 0.3);
+        opacity: 0;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: rotate(0deg);
+    }
+
+    .product-card:hover > div:first-child::before {
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+
+    .product-card h3 {
+        color: #6B4226;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.3;
+        font-family: 'Cinzel', serif;
+        text-shadow: 1px 1px 3px rgba(107, 66, 38, 0.15);
+        transition: color 0.3s ease;
+        letter-spacing: 1px;
+        margin-bottom: 0.75rem;
+    }
+
+    .product-card:hover h3 {
+        color: #8B4513;
+    }
+
+    .product-card p {
+        color: #5A522D;
+        font-family: 'Lora', serif;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-card:hover p {
+        color: #2D5016;
+    }
+
+    /* Adjust button spacing */
+    .product-card button {
+        margin-top: 1rem;
+    }
+
+    /* Section headings */
+    .about-us h2, .contact-us h2 {
+        color: #6B4226;
+        font-family: 'Cinzel', serif;
+        font-weight: 700;
+        text-align: center;
+        text-shadow: 2px 2px 8px rgba(107, 66, 38, 0.25);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+        letter-spacing: 2px;
+    }
+    .footer {
+        color: #5A5A4A;
+        font-family: 'Lora', serif;
+        text-align: center;
+    }
+    .home-title {
+        font-family: 'Cinzel', serif; /* Elegant traditional serif */
+        color: #6B4226;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-align: center;
+        text-shadow: 3px 3px 8px rgba(107, 66, 38, 0.3);
+        animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .home-subtitle {
+        font-family: 'Lora', serif;
+        color: #5A5A4A;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    /* Slideshow specific styles */
+    .slide-container {
+        position: relative;
+        width: 100%; /* Full width */
+        max-width: 1400px; /* Increased max width to fill more space */
+        margin: auto;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Slightly darker shadow for warmth */
+    }
+    .mySlides {
+        display: none; /* Hide all slides by default */
+        width: 100%;
+        height: auto; /* Auto height to maintain aspect ratio */
+        aspect-ratio: 960 / 553; /* Maintain 960x553 aspect ratio */
+        object-fit: cover; /* Ensures images/videos cover the area */
+        border-radius: 8px;
+        transition: opacity 1.5s ease-in-out; /* Smooth fade effect */
+        opacity: 0;
+        position: absolute; /* Stack slides */
+        top: 0;
+        left: 0;
+        background: #000; /* Black background for videos */
+    }
+    .mySlides.active {
+        display: block; /* Show active slide */
+        opacity: 1; /* Fade in */
+        position: relative; /* Take up space */
+    }
+
+    /* Video-specific styling */
+    video.mySlides {
+        max-height: 600px; /* Limit video height */
+    }
+
+    /* Dots for navigation */
+    .dots-container {
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        z-index: 5; /* Ensure dots are above other content */
+    }
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 4px;
+        background-color: #D2B48C; /* Tan/earthy dot color */
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    .dot.active, .dot:hover {
+        background-color: #A0522D; /* Sienna for active/hover dot */
+    }
+
+    /* Product detail page specific colors */
+    #product-detail .bg-gradient-to-br {
+        background: linear-gradient(to bottom right, #F0EAD6, #D2B48C); /* Warm gradient */
+    }
+    #product-detail .text-green-800 { color: #6B4226; /* Darker brown for titles */ }
+    #product-detail .text-green-700 { color: #A0522D; /* Sienna for price */ }
+    #product-detail .bg-green-100 { background-color: #FFF8DC; /* Cornsilk for offers box */ }
+    #product-detail .text-green-900 { color: #8B4513; /* Saddle Brown for offer title */ }
+    #product-detail .font-semibold.text-green-800 { color: #A0522D; /* Sienna for offer codes */ }
+    #product-detail .border-green-500 { border-color: #D2B48C; /* Tan for border lines */ }
+    #product-detail .bg-green-800 { background-color: #8B4513; /* Saddle Brown for Add to Cart button */ }
+    #product-detail .hover\:bg-green-900:hover { background-color: #6B4226; /* Darker brown on hover */ }
+    #product-detail .focus\:ring-green-600:focus { box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.5); /* Saddle Brown ring */ }
+
+    /* General buttons (contact, back) */
+    .btn-brown {
+        background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+        box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+        transition: all 0.3s ease;
+    }
+    .btn-brown:hover {
+        background: linear-gradient(135deg, #6B4226 0%, #8B4513 100%);
+        box-shadow: 0 6px 16px rgba(107, 66, 38, 0.4);
+        transform: translateY(-2px);
+    }
+    .bg-green-500 {
+        background: linear-gradient(135deg, #2D5016 0%, #3D6B1F 100%);
+        box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+        transition: all 0.3s ease;
+    }
+    .hover\:bg-green-700:hover {
+        background: linear-gradient(135deg, #1D4010 0%, #2D5016 100%);
+        box-shadow: 0 6px 16px rgba(29, 64, 16, 0.4);
+        transform: translateY(-2px);
+    }
+
+    /* Cart drawer styles */
+    .drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 380px;
+        max-width: 92vw;
+        height: 100dvh; /* Use 100dvh for modern browsers */
+        background: #F5F0DB; /* Lighter background for the drawer */
+        border-left: 1px solid #D2B48C; /* Border color from custom styles */
+        transform: translateX(105%);
+        transition: transform .3s ease;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+    .drawer.open { transform: translateX(0%); }
+    .drawer header {
+        background: linear-gradient(to right, #FAF8F2, #EFEAE0); /* Consistent header background */
+        position: sticky; /* Make drawer header sticky too */
+        top: 0;
+        border-bottom: 1px solid #D2B48C; /* Consistent border */
+        z-index: 10; /* Ensure it's above content but below main site header */
+        padding: 1.5rem 1rem; /* Adjust padding to match main header if needed */
+    }
+    .drawer .body {
+        flex: 1;
+        overflow-y: auto; /* Changed from hidden to auto to enable scrolling of the entire body content */
+        display: flex;
+        flex-direction: column;
+    }
+    .items {
+        flex: 1; /* This makes it grow and push the sum/checkout down */
+        /* Removed overflow-y: auto from here to prevent nested scrollbars */
+        padding: 1rem;
+        display: grid; /* Retain grid for item layout */
+        gap: .6rem;
+    }
+    .item {
+        display: grid;
+        grid-template-columns: 64px 1fr auto;
+        gap: .7rem;
+        align-items: center;
+        background: #FFFFFF; /* White for item cards */
+        border: 1px solid #E0E0E0; /* Light gray border */
+        border-radius: 12px;
+        padding: .6rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .item img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 8px; /* Slightly rounded corners for item images */
+    }
+    .qty {
+        display: inline-flex;
+        gap: .4rem;
+        align-items: center;
+        background: #F8F4E3; /* Lighter background for quantity controls */
+        border: 1px solid #D2B48C; /* Consistent border */
+        border-radius: 10px;
+        padding: .2rem;
+    }
+    .qty button {
+        padding: .3rem .6rem;
+        background-color: #A0522D; /* Sienna for quantity buttons */
+        color: white;
+        border-radius: 8px; /* Rounded buttons */
+        transition: background-color 0.2s ease;
+    }
+    .qty button:hover {
+        background-color: #8B4513; /* Darker Sienna on hover */
+    }
+    .qty button.danger { background: #ef4444; color: white; } /* Red for remove */
+    .qty button.danger:hover { background: #d03030; }
+
+    .sum {
+        padding: 1rem;
+        border-top: 1px dashed #D2B48C;
+        display: grid;
+        gap: .4rem;
+        flex-shrink: 0; /* Prevents shrinking */
+    } /* Consistent border color */
+    .checkout {
+        padding: 1rem;
+        border-top: 1px solid #D2B48C;
+        display: grid;
+        gap: .6rem;
+        flex-shrink: 0; /* Prevents shrinking */
+    } /* Consistent border color */
+    .checkout input, .checkout textarea {
+        width: 100%;
+        background: #FFFFFF; /* White background for inputs */
+        border: 1px solid #D2B48C; /* Consistent border */
+        color: #4A4A4A; /* Dark text color */
+        padding: .7rem .9rem;
+        border-radius: 12px;
+        font-family: 'Lora', serif; /* Consistent font */
+    }
+    .note { font-size: .85rem; color: #5A5A4A; } /* Muted text color */
+    
+    /* Adjust button styles to be consistent */
+    button {
+        border: 0;
+        padding: .7rem 1rem;
+        border-radius: 12px;
+        background: #A0522D; /* Sienna for primary buttons */
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    button:hover {
+        background: #8B4513; /* Darker Sienna on hover */
+        transform: translateY(-2px);
+    }
+    button.ghost {
+        background: transparent;
+        color: #4A4A4A; /* Dark text */
+        border: 1px solid #D2B48C; /* Consistent border */
+    }
+    button.ghost:hover {
+        background: #EFEAE0; /* Lighter background on hover */
+        transform: translateY(-2px);
+    }
+    button.danger {
+        background: #ef4444; /* Standard red */
+        color: white;
+    }
+    button.danger:hover {
+        background: #d03030;
+    }
+    .badge {
+        font-size: .75rem;
+        padding: .25rem .5rem;
+        border-radius: 999px;
+        border: 1px solid #D2B48C;
+        background: #F0EAD6; /* Light background */
+        color: #5A5A4A; /* Muted text */
+    }
+
+    /* Ensure the mobile menu close button is visible in the drawer */
+    .drawer #closeDrawer {
+        color: #4A4A4A; /* Dark text for close button */
+    }
+    .drawer #closeDrawer:hover {
+        color: #A0522D; /* Sienna on hover */
+    }
+
+    /* Main container background for readability */
+    main {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(5px);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Section styling */
+    section {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 3rem 2rem;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(107, 66, 38, 0.1);
+        text-align: center;
+        position: relative;
+        border: 2px solid rgba(139, 69, 19, 0.15);
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    /* Krishna watermark - only on home section */
+    #home::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 600px;
+        background-image: url('Photos/Krishna.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.08;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Ensure content is above the watermark */
+    #home > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Responsive sizing for Krishna watermark */
+    @media (max-width: 768px) {
+        #home::after {
+            width: 250px;
+            height: 375px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        #home::after {
+            width: 320px;
+            height: 480px;
+        }
+    }
+
+    /* Product grid alignment */
+    #product-grid {
+        display: grid;
+        gap: 1.5rem;
+        justify-items: center;
+        align-items: stretch;
+    }
+
+    /* Consistent product card sizing */
+    .product-card {
+        width: 100%;
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    /* Scroll reveal animation */
+    .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Mobile touch optimization */
+    /* Mobile-specific optimizations */
+    @media (max-width: 768px) {
+        .product-card {
+            -webkit-tap-highlight-color: rgba(139, 69, 19, 0.2);
+            padding: 1.5rem 1rem 1rem;
+        }
+
+        .product-card img {
+            width: 170px !important;
+            height: 170px !important;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+        }
+
+        button, .nav-link, a {
+            min-height: 48px;
+            min-width: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+        }
+
+        /* Better mobile spacing */
+        section {
+            padding: 2rem 1rem !important;
+        }
+
+        /* Larger text for mobile readability */
+        body {
+            font-size: 16px;
+        }
+
+        /* Mobile-optimized buttons */
+        .btn-brown {
+            padding: 14px 24px;
+            font-size: 1rem;
+        }
+
+        /* Better mobile cart drawer */
+        .drawer {
+            width: 100vw !important;
+            max-width: 100vw !important;
+        }
+
+        /* Mobile slideshow optimization */
+        .slideshow-wrapper {
+            padding: 1rem !important;
+            border-radius: 12px !important;
+        }
+
+        /* Mobile product detail image */
+        #product-detail img {
+            width: 280px !important;
+            height: 280px !important;
+        }
+
+        /* Mobile form inputs */
+        input, textarea, select {
+            font-size: 16px !important;
+        }
+
+        /* Mobile gallery optimization */
+        #gallery-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+        }
+
+        .gallery-item img,
+        .gallery-item > div {
+            height: 250px !important;
+        }
+
+        /* Mobile Our Story section */
+        #our-story .grid {
+            grid-template-columns: 1fr !important;
+        }
+
+        #our-story img {
+            max-height: 300px !important;
+        }
+
+        /* Mobile gallery filters */
+        .gallery-filter {
+            font-size: 0.9rem !important;
+            padding: 10px 20px !important;
+        }
+
+        /* Mobile lightbox */
+        #lightbox-close {
+            top: 10px !important;
+            right: 10px !important;
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 30px !important;
+        }
+
+        #lightbox-content,
+        #lightbox-video {
+            max-width: 95vw !important;
+            max-height: 80vh !important;
+        }
+    }
+
+    /* Enhanced WhatsApp button styling */
+    a[href*="wa.me"] {
+        background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    a[href*="wa.me"]::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    a[href*="wa.me"]:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Decorative divider between sections */
+    .section-divider {
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #8B4513, #2D5016, #8B4513);
+        margin: 2rem auto;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(107, 66, 38, 0.3);
+    }
+
+    /* Traditional rangoli-style dots */
+    .rangoli-dot {
+        width: 8px;
+        height: 8px;
+        background: radial-gradient(circle, #8B4513 0%, #6B4226 100%);
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 4px;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+    }
+
+    /* Krishna watermark enhancement with rotation */
+    #home::after {
+        animation: gentleGlow 6s ease-in-out infinite, slowRotate 60s linear infinite;
+    }
+
+    @keyframes gentleGlow {
+        0%, 100% {
+            opacity: 0.08;
+            filter: drop-shadow(0 0 10px rgba(139, 69, 19, 0.2));
+        }
+        50% {
+            opacity: 0.14;
+            filter: drop-shadow(0 0 25px rgba(139, 69, 19, 0.35));
+        }
+    }
+
+    @keyframes slowRotate {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    /* Image loading states */
+    .lazy-image {
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(45, 80, 22, 0.05) 100%);
+        transition: opacity 0.3s ease;
+    }
+
+    .lazy-image[loading="lazy"] {
+        opacity: 0;
+        animation: fadeInImage 0.5s ease forwards;
+    }
+
+    /* Gallery filter buttons */
+    .gallery-filter {
+        cursor: pointer;
+    }
+
+    .gallery-filter.active {
+        background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%) !important;
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+    }
+
+    .gallery-filter:not(.active):hover {
+        background: #E8DCC8 !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(107, 66, 38, 0.2);
+    }
+
+    /* Gallery items */
+    .gallery-item {
+        opacity: 1;
+        transition: all 0.3s ease;
+    }
+
+    .gallery-item.hidden {
+        display: none;
+    }
+
+    /* Lightbox Modal */
+    #lightbox-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 20000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    #lightbox-modal.active {
+        display: flex;
+    }
+
+    #lightbox-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    #lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        background: rgba(139, 69, 19, 0.8);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    #lightbox-close:hover {
+        background: rgba(139, 69, 19, 1);
+        transform: rotate(90deg);
+    }
+
+    @keyframes fadeInImage {
+        from {
+            opacity: 0;
+            filter: blur(4px);
+        }
+        to {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    /* Loading spinner for images */
+    .lazy-image::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        border: 3px solid rgba(139, 69, 19, 0.1);
+        border-top-color: #8B4513;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-lora">
+  <!-- Temporary message box for alerts -->
+  <div id="app-message-box" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hidden z-50"></div>
+
+  <header class="header py-3 px-4 md:px-8 lg:px-12 border-b border-gray-200 shadow-md sticky top-0 z-10">
+    <div class="container mx-auto">
+      <!-- Header with logo and title -->
+      <div class="flex items-center justify-center mb-2">
+        <img src="Photos/krishna logo new .png" alt="Krishna Logo" class="header-logo mr-4">
+        <h1 class="font-semibold">Goppalu Deepalu</h1>
+      </div>
+
+      <!-- Navigation and Cart in a flex container -->
+      <div class="flex justify-between items-center w-full px-4 md:px-8 lg:px-16">
+        <nav class="hidden md:flex flex-1 justify-center">
+          <ul class="flex justify-between w-full" style="max-width: 90%;">
+            <li><a href="#home" class="nav-link transition duration-300">Home</a></li>
+            <li><a href="#products" class="nav-link transition duration-300">Products</a></li>
+            <li><a href="#our-story" class="nav-link transition duration-300">Our Story</a></li>
+            <li><a href="#gallery" class="nav-link transition duration-300">Gallery</a></li>
+            <li><a href="#about" class="nav-link transition duration-300">About Us</a></li>
+            <li><a href="#contact" class="nav-link transition duration-300">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Cart button positioned to the right of nav -->
+        <div class="flex items-center space-x-4 ml-8">
+            <button id="cartBtn" class="bg-gray-200 text-gray-700 py-2 px-4 rounded-full flex items-center space-x-2 shadow-sm hover:bg-gray-300 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.023.832l.97 5.915c.068.49.423.834.933.834H18.75c.51 0 .955-.343 1.023-.832L21.75 6H10.5m11.25 12c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5 1.5-3 .75-3H8.25m.75 3L9 15m0 0l-1.5-1.5M10.5 5.25H21.75V3H10.5v2.25zM12 21a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM12 21a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                </svg>
+                <span id="cartCount" class="text-sm font-semibold">0</span>
+            </button>
+            <button id="hamburger-btn" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle Navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16-5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-20">
+    <div class="bg-white w-80 h-full absolute right-0 p-6">
+      <div class="flex justify-end mb-4">
+        <button id="close-menu-btn" class="text-gray-700 focus:outline-none" aria-label="Close Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="block">
+        <ul class="space-y-4">
+          <li><a href="#home" class="block text-lg text-gray-700 hover:text-green-600 transition duration-300">Home</a></li>
+          <li><a href="#products" class="block text-lg text-gray-700 hover:text-green-600 transition duration-300">Products</a></li>
+          <li><a href="#our-story" class="block text-lg text-gray-700 hover:text-green-600 transition duration-300">Our Story</a></li>
+          <li><a href="#gallery" class="block text-lg text-gray-700 hover:text-green-600 transition duration-300">Gallery</a></li>
+          <li><a href="#about" class="block text-lg text-gray-700 hover:text-green-600 transition duration-300">About Us</a></li>
+          <li><a href="#contact" class="block text-lg text-gray-700 hover:text-green-600 transition duration-300">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container mx-auto py-8 px-4 md:px-8 lg:px-12">
+    <!-- Home Section -->
+    <section id="home" class="mb-16">
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold home-title">Welcome to Goppalu Deepalu</h2>
+        <p class="text-gray-600 text-lg mb-4 home-subtitle">Saving Cows, Serving Tradition</p>
+        <p class="text-gray-700 text-lg mb-6 leading-relaxed" style="font-family: 'Lora', serif; line-height: 1.8; max-width: 900px; margin-left: auto; margin-right: auto;">
+          Nestled on the sacred banks of the Godavari, our Gosala is a sanctuary of compassion, faith, and tradition. For over five decades, we have lovingly cared for our indigenous cows, cherishing them as part of our extended family. Every product we offer is a testament to this bond, crafted with devotion and a deep respect for nature's purity. When you choose Goppalu Deepalu, you're not just acquiring a product; you're embracing a legacy of sustainability, well-being, and spiritual harmony. Join us in celebrating a way of life where every cow is revered, and every creation carries the blessings of an ancient, sacred tradition.
+        </p>
+        <!-- Hero slideshow - Best 5 photos -->
+        <div class="slideshow-wrapper" style="position: relative; max-width: 1400px; margin: 0 auto; padding: 1.5rem; background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(45, 80, 22, 0.05) 100%); border-radius: 20px; border: 3px solid rgba(139, 69, 19, 0.2); box-shadow: 0 8px 24px rgba(107, 66, 38, 0.15);">
+          <div class="slide-container">
+            <img class="mySlides active" src="Photos/Slideshow/goshala-slideshow-1.jpg" alt="Goppalu Deepalu Goshala">
+            <img class="mySlides" src="Photos/Slideshow/IMG_6197.jpg" alt="Desi Cows">
+            <img class="mySlides" src="Photos/Slideshow/IMG_6430.jpg" alt="Gosala Life">
+            <img class="mySlides" src="Photos/Slideshow/IMG_8422.jpg" alt="Sacred Bovine Care">
+            <img class="mySlides" src="Photos/Slideshow/goshala-slideshow-2.jpg" alt="Goppalu Deepalu Cows">
+          </div>
+          <div class="dots-container" id="dots-container">
+            <!-- Dots will be dynamically added here -->
+          </div>
+        </div>
+        <!-- Call to action button -->
+        <div style="margin-top: 2rem;">
+          <a href="#products" class="inline-block text-white py-4 px-8 rounded-full text-lg font-bold transition duration-300 ease-in-out shadow-lg hover:shadow-xl transform hover:-translate-y-1" style="background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); font-family: 'Cinzel', serif; letter-spacing: 1px;" onmouseover="this.style.background='linear-gradient(135deg, #6B4226 0%, #8B4513 100%)'" onmouseout="this.style.background='linear-gradient(135deg, #8B4513 0%, #A0522D 100%)'">
+            Explore Our Products
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="text-gray-600 text-lg mb-4 home-subtitle">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-4" style="font-family: 'Cinzel', serif; font-weight: 700; color: #6B4226; text-shadow: 2px 2px 8px rgba(107, 66, 38, 0.25); letter-spacing: 2px;">Our Products</h2>
+      <div class="section-divider"></div>
+      <div class="text-center mb-8">
+        <span class="rangoli-dot"></span>
+        <span class="rangoli-dot"></span>
+        <span class="rangoli-dot"></span>
+      </div>
+      <div id="product-listing" class="space-y-6">
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+      </div>
+      <div id="product-detail" class="hidden space-y-6 bg-white rounded-xl shadow-lg p-6 md:p-8">
+        <button id="back-button" class="btn-brown text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center mb-4">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back to Products
+        </button>
+        <div id="detail-content-container"></div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="our-story" class="text-gray-600 text-lg mb-4 home-subtitle">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-4" style="font-family: 'Cinzel', serif; font-weight: 700; color: #6B4226; text-shadow: 2px 2px 8px rgba(107, 66, 38, 0.25); letter-spacing: 2px;">Our Story</h2>
+      <div class="section-divider"></div>
+      <div class="text-center mb-8">
+        <span class="rangoli-dot"></span>
+        <span class="rangoli-dot"></span>
+        <span class="rangoli-dot"></span>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4" style="color: #8B4513; font-family: 'Cinzel', serif;">A Legacy of Compassion</h3>
+            <p class="text-gray-700 text-lg leading-relaxed mb-4" style="font-family: 'Lora', serif; line-height: 1.8;">
+              For over five decades, our Gosala has stood as a beacon of hope and reverence for indigenous cows. Nestled on the sacred banks of the Godavari River, we have dedicated ourselves to the protection and care of these gentle beings who have been companions to our culture for millennia.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed" style="font-family: 'Lora', serif; line-height: 1.8;">
+              What began as a small shelter for abandoned cows has blossomed into a thriving sanctuary housing over 40 healthy indigenous cows. Each cow is treated as a member of our extended family, receiving the love, care, and respect they deserve.
+            </p>
+          </div>
+          <div>
+            <img src="Photos/Slideshow/IMG_6430.jpg" alt="Our Goshala" class="rounded-lg shadow-lg w-full h-auto object-cover" loading="lazy" style="max-height: 400px;">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+          <div class="order-2 md:order-1">
+            <img src="Photos/Slideshow/IMG_0863.jpg" alt="Traditional Cow Care" class="rounded-lg shadow-lg w-full h-auto object-cover" loading="lazy" style="max-height: 400px;">
+          </div>
+          <div class="order-1 md:order-2">
+            <h3 class="text-2xl font-semibold mb-4" style="color: #8B4513; font-family: 'Cinzel', serif;">Rooted in Tradition</h3>
+            <p class="text-gray-700 text-lg leading-relaxed mb-4" style="font-family: 'Lora', serif; line-height: 1.8;">
+              Our approach to cow care is deeply rooted in ancient Vedic traditions. We believe that cows are not merely animals but sacred beings whose presence brings spiritual and material prosperity. Every aspect of our Gosala reflects this philosophy.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed" style="font-family: 'Lora', serif; line-height: 1.8;">
+              From the products we create to the methods we employ, everything honors the time-tested wisdom of our ancestors while embracing sustainable, natural practices that benefit both the cows and the environment.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4" style="color: #8B4513; font-family: 'Cinzel', serif;">Pure Products, Pure Hearts</h3>
+            <p class="text-gray-700 text-lg leading-relaxed mb-4" style="font-family: 'Lora', serif; line-height: 1.8;">
+              Every product we offer comes from happy, healthy cows who roam freely and graze on natural pastures. Our milk, ghee, curd, and traditional items like Panchagavya Deepam and sambrani are made with devotion and care.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed" style="font-family: 'Lora', serif; line-height: 1.8;">
+              When you choose Goppalu Deepalu, you're not just purchasing a product. You're supporting a movement to preserve indigenous cow breeds, sustain traditional knowledge, and promote a lifestyle of harmony with nature.
+            </p>
+          </div>
+          <div>
+            <img src="Photos/Slideshow/IMG_6197.jpg" alt="Pure Products" class="rounded-lg shadow-lg w-full h-auto object-cover" loading="lazy" style="max-height: 400px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="text-gray-600 text-lg mb-4 home-subtitle">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-4" style="font-family: 'Cinzel', serif; font-weight: 700; color: #6B4226; text-shadow: 2px 2px 8px rgba(107, 66, 38, 0.25); letter-spacing: 2px;">Gallery</h2>
+      <div class="section-divider"></div>
+      <div class="text-center mb-8">
+        <span class="rangoli-dot"></span>
+        <span class="rangoli-dot"></span>
+        <span class="rangoli-dot"></span>
+      </div>
+
+      <!-- Photo Gallery - No Filter Needed -->
+      <div class="text-center mb-8">
+        <p class="text-gray-600 text-lg" style="font-family: 'Lora', serif;">Explore our collection of photos from the Goshala</p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Photos -->
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/goshala-slideshow-1.jpg" alt="Goppalu Deepalu Goshala" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/FullSizeRender.jpg" alt="Goppalu Deepalu" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_0863.jpg" alt="Sacred Cows" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_6197.jpg" alt="Desi Cows" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/goshala-slideshow-2.jpg" alt="Goppalu Deepalu Cows" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_6201.jpg" alt="Indigenous Cows" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_0864.jpg" alt="Cow Sanctuary" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_6248.jpg" alt="Goppalu Deepalu Cows" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/goshala-slideshow-4.jpg" alt="Traditional Cow Care" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_6418.jpg" alt="Cow Protection" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_0878.jpg" alt="Traditional Cow Care" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_6430.jpg" alt="Gosala Life" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/goshala-slideshow-6.jpg" alt="Peaceful Goshala" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/IMG_8422.jpg" alt="Sacred Bovine Care" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/PHOTO-2026-01-05-17-05-30.jpg" alt="Goppalu Deepalu" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/PHOTO-2026-01-05-17-05-31.jpg" alt="Traditional Gosala" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+        <div class="gallery-item" data-category="photos">
+          <img src="Photos/Slideshow/PHOTO-2026-01-05-17-05-31 2.jpg" alt="Cow Welfare" class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer" loading="lazy" onclick="openLightbox(this.src, 'photo')">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="text-gray-600 text-lg mb-4 home-subtitle">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-4" style="font-family: 'Cinzel', serif; font-weight: 700; color: #6B4226; letter-spacing: 2px;">About Us</h2>
+      <div class="section-divider"></div>
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <p class="text-gray-700 text-lg leading-relaxed" style="font-family: 'Lora', serif; line-height: 1.8; text-align: center; margin: 0 auto; max-width: 900px;">
+          Our Gosala, cradled on the banks of the sacred Godavari, is a testament to our unwavering commitment to indigenous bovine care. For over five decades, we've dedicated ourselves to raising a healthy herd of over 40 cows, ensuring their well-being and happiness. Our mission extends beyond mere sustenance; we aim to foster a sustainable and spiritually enriching lifestyle by offering a range of pure cow-derived products. From fresh milk to traditional items like cow dung diyas, sambrani, and herbal soaps, each product embodies our reverence for nature and our cultural heritage.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="text-gray-600 text-lg mb-4 home-subtitle">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-4" style="font-family: 'Cinzel', serif; font-weight: 700; color: #6B4226; letter-spacing: 2px;">Contact Us</h2>
+      <div class="section-divider"></div>
+      <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <p class="text-gray-700 text-lg" style="font-family: 'Lora', serif; text-align: center;">
+          <strong>Address:</strong> Vonteddu Vari St, Seshayya Metta, Rajamahendravaram, Andhra Pradesh 533101<br>
+          <strong>Phone:</strong> 086881 00984
+        </p>
+      </div>
+      <div class="flex justify-center">
+        <a href="https://wa.me/918688100984" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 text-lg">
+          Connect on WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart drawer -->
+  <aside id="drawer" class="drawer" aria-hidden="true" aria-label="Cart drawer">
+    <header class="header py-6 px-4 md:px-8 lg:px-12 border-b border-gray-200 sticky top-0 z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <strong class="text-2xl md:text-3xl font-semibold">Your Cart</strong>
+        <button class="text-gray-700 focus:outline-none" id="closeDrawer" aria-label="Close cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <div class="body flex-1 overflow-y-auto flex flex-col">
+      <div class="items flex-1 /* Removed overflow-y: auto from here */ p-4 space-y-3" id="cartItems"></div>
+      <div class="sum p-4 border-t border-gray-300 space-y-2 flex-shrink-0" id="summary"></div>
+      <div class="checkout p-4 border-t border-gray-300 space-y-4 flex-shrink-0">
+        <h3 class="text-xl font-semibold text-gray-800">Your Details</h3>
+        <input id="custName" placeholder="Full name" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 text-gray-700" />
+        <input id="custPhone" placeholder="Phone (WhatsApp)" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 text-gray-700" />
+        <textarea id="custAddress" rows="3" placeholder="Address (with PIN)" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 text-gray-700"></textarea>
+        <div class="note text-sm text-gray-600">Complete your order by clicking the checkout button below. Your order will be processed and you'll receive confirmation shortly.</div>
+        <button id="checkoutBtn" class="w-full bg-green-500 text-white py-3 px-6 rounded-lg font-bold hover:bg-green-600 transition duration-300 shadow-md">Complete Order</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-content" src="" alt="Lightbox Image" style="display: none;">
+    <video id="lightbox-video" controls style="display: none; max-width: 90vw; max-height: 90vh;">
+      <source src="" type="video/mp4">
+    </video>
+  </div>
+
+  <footer class="bg-gray-200 py-4 text-center footer">
+    <p>© <span id="year"></span> Goppalu Deepalu. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ---------------------- Products Data ----------------------
+    const products = [
+      {
+        id: 1,
+        name: "Cow Milk",
+        image: "Photos/Cow Milk.jpg",
+        price: "₹70/liter",
+        unitPrice: 70,
+        unit: "liter",
+        deliveryNote: "*Only for delivery in and around Rajamahendravaram",
+        description: "Fresh, unadulterated milk from desi (indigenous) cows, rich in A2 protein. Known in Ayurveda as a complete food, cow milk strengthens immunity, enhances mental clarity, and promotes healthy growth for all ages.",
+        howToUseTelugu: "తాజా ఆవు పాలను వేడి చేసి త్రాగాలి. పిల్లల పెరుగుదల కోసం ప్రతిరోజూ రెండు గ్లాసులు ఇవ్వవచ్చు. నిద్ర ముందు తీసుకుంటే మెదడు ఆరోగ్యంగా ఉండేలా చేస్తుంది.",
+        howToUseEnglish: "Boil the milk before drinking. Consume it daily for nutritional benefits. Best taken warm at night to promote calm sleep and mental well-being."
+      },
+      {
+        id: 2,
+        name: "Ghee",
+        image: "Photos/Ghee.jpg",
+        price: "₹400/250 grams",
+        unitPrice: 400,
+        unit: "250 grams",
+        deliveryNote: "*Only for delivery in and around Rajamahendravaram",
+        description: "Pure and healthy Ghee, churned using traditional methods from the milk of our beloved cows. Known for its rich aroma, distinct flavor, and numerous health benefits in Ayurvedic traditions.",
+        howToUseTelugu: "వంటల్లో లేదా నిత్య పూజల్లో నెయ్యిని ఉపయోగించవచ్చు. అన్నంలో చిన్ని నెయ్యి వేసుకుంటే రుచిగా ఉండడమే కాదు, ఆరోగ్యానికి కూడా మంచిది.",
+        howToUseEnglish: "Add a spoon of ghee to rice, chapatis, or traditional dishes. Can be used in lamp lighting during pujas for auspiciousness."
+      },
+      {
+        id: 3,
+        name: "Curd",
+        image: "Photos/Curd.jpg",
+        price: "₹100/250 grams",
+        unitPrice: 100,
+        unit: "250 grams",
+        deliveryNote: "*Only for delivery in and around Rajamahendravaram",
+        description: "Homemade curd prepared from desi cow milk. Naturally set, probiotic-rich, and easily digestible. Supports gut health and strengthens bones.",
+        howToUseTelugu: "ఆహారంలో భాగంగా రోజు తీసుకోవచ్చు. వేసవిలో శరీరాన్ని చల్లబరచడం కోసం మంచి ఉపాయంగా ఉంటుంది.",
+        howToUseEnglish: "Consume with meals for cooling effect and digestive support. Can be eaten plain or with rice, fruits, or sugar."
+      },
+      {
+        id: 4,
+        name: "Panchagavya Deepalu",
+        image: "Photos/Panchagavya Deepam.jpg",
+        price: "₹20/box",
+        unitPrice: 20,
+        unit: "box",
+        totalDiyasPerUnit: 5, // Specific for Deepalu
+        deliveryNote: "*Need a week's time to prepare",
+        description: "Sacred Panchagavya Deepalu, crafted from indigenous cow dung and other natural ingredients. These traditional lamps are used for spiritual purification and creating a positive atmosphere during rituals and prayers.",
+        howToUseTelugu: "గోమూత్రం, ఆవు పేడ, మరియు గంధంతో చేసిన మన దీపాన్ని ఉపయోగించడానికి, దీపాన్ని నిలువుగా ఉంచి, దానికి సూతిని పెట్టి, నెయ్యి లేదా నూనె వేసి వెలిగించాలి. దీపం వెలిగించడం పుణ్యాన్ని మరియు పవిత్రతను పెంచుతుంది.",
+        howToUseEnglish: "Place the Panchagavya Deepam on a diya stand or plate, insert a cotton wick, add ghee or oil, and light it. Lighting this lamp is believed to bring positive energy and spiritual purity to your home."
+      },
+      {
+        id: 5,
+        name: "Sambrani (Incense Cups)",
+        image: "Photos/sambrani-cup.jpg",
+        price: "₹20/box",
+        unitPrice: 20,
+        unit: "box",
+        deliveryNote: "*Need a week's time to prepare",
+        description: "Sacred Sambrani cups made from cow dung and natural resins. When lit, they release aromatic smoke that purifies the air, repels insects, and uplifts the spiritual atmosphere.",
+        howToUseTelugu: "ఒక ప్లేట్ మీద సంప్రాణి కప్పును ఉంచి మంటతో వెలిగించాలి. స్నానం తరువాత లేదా సాయంత్రం పూజ సమయంలో దాన్ని ఉపయోగించండి.",
+        howToUseEnglish: "Place the cup on a heat-resistant surface. Light the edge until it catches fire, then let it smolder. Use after baths or during prayers for fragrance and spiritual cleansing."
+      },
+      {
+        id: 6,
+        name: "Cow Dung Cakes",
+        image: "Photos/Cow Dung Cakes.jpg",
+        price: "₹5/box",
+        unitPrice: 5,
+        unit: "box",
+        deliveryNote: "*Need a week's time to prepare",
+        description: "Sun-dried cow dung cakes made from pure desi cow dung. Traditionally used as fuel for cooking, and in havanams and homams for sacred rituals.",
+        howToUseTelugu: "ఈ బిళ్ళలను హోమాలలో, పూజల్లో లేదా సహజ ఇంధనంగా వాడవచ్చు. ఆరిన తర్వాత మంట పెట్టి వాడండి.",
+        howToUseEnglish: "Ignite the dried cake and use it in homa rituals or traditional cooking. It burns slowly and purifies the environment."
+      },
+      {
+        id: 7,
+        name: "Natural Soap",
+        image: "Photos/soap.jpg",
+        price: "₹50/bar",
+        unitPrice: 50,
+        unit: "bar",
+        deliveryNote: "*Need a week's time to prepare",
+        description: "Chemical-free natural soap enriched with cow dung, neem, and essential oils. Gently cleanses the skin while protecting it from bacteria and maintaining natural moisture.",
+        howToUseTelugu: "ఈ సబ్బును తడిగా చేసి మృదువుగా చర్మంపై రుద్దాలి. తరువాత నీటితో కడగాలి. ఇది చర్మాన్ని ఆరోగ్యంగా ఉంచుతుంది.",
+        howToUseEnglish: "Wet the soap and apply gently to the skin. Rinse off thoroughly. Ideal for daily use and suitable for all skin types."
+      },
+      {
+        id: 8,
+        name: "Gomutra (Cow Urine)",
+        image: "Photos/Gaumotra.jpg",
+        price: "₹5/liter",
+        unitPrice: 5,
+        unit: "liter",
+        deliveryNote: "*Need a week's time to prepare",
+        description: "Filtered and purified Gomutra from healthy desi cows. Revered in Ayurveda for its detoxifying properties, immunity enhancement, and use in agnihotra rituals.",
+        howToUseTelugu: "సరైన పరిమాణంలో నీటితో కలిపి ఖాళీ కడుపుతో తీసుకోవచ్చు. వైద్యుల సూచన మేరకు వాడాలి.",
+        howToUseEnglish: "Dilute a small quantity (5–10 ml) in water and consume on an empty stomach, ideally under Ayurvedic guidance. Also used in traditional cleansing rituals."
+      },
+      {
+        id: 9,
+        name: "Vermicompost",
+        image: "Photos/vermicompost.jpg",
+        price: "₹10/kg",
+        unitPrice: 10,
+        unit: "kg",
+        deliveryNote: "*Need a week's time to prepare",
+        description: "Organic vermicompost enriched with cow dung and earthworms. Improves soil fertility, promotes root growth, and enhances crop yield without chemicals.",
+        howToUseTelugu: "ఇది మొక్కల చుట్టూ నేలపై చల్లి నీరు పోయాలి. ఇది నేల శక్తిని పెంచుతుంది మరియు మంచి పెంపకానికి తోడ్పడుతుంది.",
+        howToUseEnglish: "Sprinkle around plant roots or mix into garden soil. Water after application. Ideal for home gardens, terrace plants, and organic farming."
+      }
+    ];
+
+    // Map existing products to the format required by the cart logic
+    const SHOP_PRODUCTS = products.map(p => ({
+      id: String(p.id), // Ensure id is string as cart system expects it
+      title: p.name,
+      price: p.unitPrice, // Use unitPrice for numerical operations
+      image: p.image,
+      desc: p.description
+    }));
+
+    /********************
+     * 1) SHOP CONFIG
+     ********************/
+    const SHOP_CONFIG = {
+      name: 'Goppalu Deepalu',
+      currency: { code: 'INR', symbol: '₹', locale: 'en-IN' },
+      ownerWhatsApp: '918330965544', // WhatsApp number for orders (Primary)
+      ownerWhatsApp2: '918465949999', // WhatsApp number for orders (Secondary)
+      orderEmail: 'srikrishnachaitanyagokulam@gmail.com', // Email for orders
+      // IMPORTANT: Replace this with your deployed Google Apps Script Web App URL
+      googleSheetWebAppUrl: 'https://script.google.com/macros/s/AKfycbwk_cqfRpdMeyLihZajK8NAgImXp4VimEvvOhXBlELCpxJB99OOagQvHLsVnxxLiEeyvg/exec'
+    };
+
+    /********************
+     * UTILITIES (Moved above STATE)
+     ********************/
+    const fmt = (n) => new Intl.NumberFormat(SHOP_CONFIG.currency.locale, { style: 'currency', currency: SHOP_CONFIG.currency.code, maximumFractionDigits: 2 }).format(n);
+    const qs = (s, el=document) => el.querySelector(s);
+    const qsa = (s, el=document) => [...el.querySelectorAll(s)];
+
+    const save = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+    const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
+
+    /********************
+     * STATE (Global Variable Definitions)
+     ********************/
+    let CART = load('cart', {}); // Now `load` is defined before being used
+
+    // Function to generate a simple unique ID for orders
+    function generateOrderId() {
+        const timestamp = new Date().getTime();
+        const random = Math.floor(Math.random() * 1000);
+        return `GD-${timestamp}-${random}`;
+    }
+
+    // Function to show a temporary message box
+    function showMessageBox(message, duration = 3000) {
+        const msgBox = document.getElementById('app-message-box');
+        if (msgBox) {
+            msgBox.textContent = message;
+            msgBox.classList.remove('hidden');
+            setTimeout(() => {
+                msgBox.classList.add('hidden');
+            }, duration);
+        } else {
+            console.log("Message Box: " + message); // Fallback to console
+        }
+    }
+
+
+    // ------------- Product Grid and Detail Script -------------
+    // Moved setupQuantityControls definition here to ensure it's defined before showProductDetail calls it
+    function setupQuantityControls(product) {
+      // Initializes and manages quantity input and price calculation
+      const quantityInput = document.getElementById("quantity");
+      const decrementBtn = document.getElementById("decrement-quantity");
+      const incrementBtn = document.getElementById("increment-quantity");
+      const productPriceSpan = document.getElementById("product-calculated-price");
+      const totalUnitsSpan = document.getElementById("total-units");
+
+      function updateCalculatedValues() {
+        let currentQuantity = parseInt(quantityInput.value);
+
+        // Ensure quantity is a valid number and at least 1
+        if (isNaN(currentQuantity) || currentQuantity < 1) {
+          currentQuantity = 1;
+          quantityInput.value = 1;
+        }
+
+        const calculatedPrice = currentQuantity * product.unitPrice;
+        productPriceSpan.textContent = calculatedPrice;
+
+        // Update total diyas if applicable
+        if (product.totalDiyasPerUnit && totalUnitsSpan) {
+          totalUnitsSpan.textContent = currentQuantity * product.totalDiyasPerUnit;
+        }
+      }
+
+      updateCalculatedValues(); // Initial calculation
+
+      // Event listeners for quantity buttons and input field
+      decrementBtn.onclick = () => {
+        let currentQuantity = parseInt(quantityInput.value);
+        if (isNaN(currentQuantity) || currentQuantity <= 1) {
+          quantityInput.value = 1;
+        } else {
+          quantityInput.value = currentQuantity - 1;
+        }
+        updateCalculatedValues();
+      };
+
+      incrementBtn.onclick = () => {
+        let currentQuantity = parseInt(quantityInput.value);
+        if (isNaN(currentQuantity)) {
+          quantityInput.value = 1;
+        } else {
+          quantityInput.value = currentQuantity + 1;
+        }
+        updateCalculatedValues();
+      };
+
+      quantityInput.oninput = () => {
+        updateCalculatedValues();
+      };
+    }
+
+    function createProductCard(product) {
+      // Creates an HTML string for a single product card
+      return `
+        <div class="product-card bg-white rounded-lg shadow-md p-6 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-xl cursor-pointer" data-id="${product.id}">
+          <img src="${product.image}" alt="${product.name}" class="w-36 h-36 object-cover rounded-md mb-4 border border-gray-300 lazy-image" loading="lazy">
+          <h3 class="text-xl font-bold mb-2">${product.name}</h3>
+          <p class="mb-2 text-green-700 font-semibold">${product.price}</p>
+        </div>
+      `;
+    }
+
+    function renderProductGrid() {
+      // Renders all product cards to the product grid section
+      const grid = document.getElementById("product-grid");
+      if (grid) {
+        grid.innerHTML = products.map(createProductCard).join("");
+        // Add click listeners to each product card to show its detail
+        grid.querySelectorAll(".product-card").forEach(card => {
+          card.addEventListener("click", () => {
+            showProductDetail(card.getAttribute("data-id"));
+          });
+        });
+      } else {
+        console.error("Product grid element not found.");
+      }
+    }
+
+    function showProductDetail(id) {
+      // Displays the detailed view of a selected product
+      const product = products.find(p => p.id == id);
+      if (!product) {
+        console.error("Product not found for ID:", id);
+        return;
+      }
+
+      const detail = document.getElementById("product-detail");
+      const grid = document.getElementById("product-grid");
+      const homeSection = document.getElementById("home");
+
+      // Hide the product grid and home section, show the detail section
+      if (grid) grid.style.display = "none";
+      if (homeSection) homeSection.style.display = "none";
+      if (detail) detail.classList.remove("hidden");
+      
+      // Scroll to the top of the page for the new view
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      const container = document.getElementById("detail-content-container");
+      if (!container) {
+        console.error("Detail content container not found.");
+        return;
+      }
+
+      // Generate HTML content for the product detail page
+      let productDetailContent = `
+        <div class="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden max-w-5xl mx-auto">
+          <!-- Product Image Section - Top -->
+          <div class="p-8 md:p-12 flex items-center justify-center bg-gradient-to-br from-green-50 to-teal-50">
+            <div class="relative">
+              <img src="${product.image}" alt="${product.name}" class="w-96 h-96 md:w-[450px] md:h-[450px] object-cover rounded-full border-8 border-white shadow-2xl lazy-image" loading="lazy">
+              <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg">
+                <span class="text-white text-2xl font-bold">★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Details Section -->
+          <div class="p-6 md:p-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-3" style="color: #6B4226; font-family: 'Cinzel', serif;">${product.name}</h2>
+            ${product.deliveryNote ? `
+                <p class="text-sm mb-4" style="color: #8B4513; font-style: italic; font-weight: 500;">${product.deliveryNote}</p>
+            ` : ''}
+            ${product.totalDiyasPerUnit ? `
+                <p class="text-gray-700 text-lg mb-4">Total Diyas: <span id="total-units"></span></p>
+            ` : ''}
+            <p class="text-5xl font-extrabold mb-4" style="color: #8B4513;">₹<span id="product-calculated-price"></span></p>
+            <p class="text-gray-500 text-sm mb-6">PRICES ARE INCLUSIVE OF ALL TAXES</p>
+
+            <!-- Quantity Selector -->
+            <div class="flex items-center justify-center mb-8">
+              <label for="quantity" class="text-xl font-semibold text-gray-800 mr-4">Quantity (${product.unit}):</label>
+              <div class="flex items-center border-2 border-gray-300 rounded-lg overflow-hidden">
+                <button id="decrement-quantity" class="px-5 py-3 text-gray-700 hover:bg-gray-100 text-2xl font-bold focus:outline-none transition" style="background-color: #F5F0DB;">-</button>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" class="w-20 text-center py-3 text-xl font-semibold focus:outline-none border-l-2 border-r-2 border-gray-300">
+                <button id="increment-quantity" class="px-5 py-3 text-gray-700 hover:bg-gray-100 text-2xl font-bold focus:outline-none transition" style="background-color: #F5F0DB;">+</button>
+              </div>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button onclick="addToCartFromDetail(${product.id})" class="w-full text-white py-4 px-8 rounded-full text-xl font-bold focus:outline-none focus:ring-4 transition duration-300 ease-in-out shadow-lg mb-8" style="background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);" onmouseover="this.style.background='linear-gradient(135deg, #6B4226 0%, #8B4513 100%)'" onmouseout="this.style.background='linear-gradient(135deg, #8B4513 0%, #A0522D 100%)'">
+              Add to Cart
+            </button>
+          </div>
+
+          <!-- Product Description Section - Bottom -->
+          <div class="p-6 md:p-10 bg-gray-50 text-left border-t-2 border-gray-200">
+            <h3 class="text-2xl md:text-3xl font-bold mb-4" style="color: #6B4226; font-family: 'Cinzel', serif;">Product Description</h3>
+            <p class="text-gray-700 mb-6 leading-relaxed text-lg">
+              ${product.description}
+            </p>
+            ${product.howToUseTelugu && product.howToUseEnglish ? `
+            <h3 class="text-2xl md:text-3xl font-bold mb-4" style="color: #6B4226; font-family: 'Cinzel', serif;">How to Use</h3>
+            <h4 class="text-xl font-semibold mb-3" style="color: #8B4513;">ఆవు పాలను ఎలా ఉపయోగించాలి:</h4>
+            <p class="text-gray-700 mb-6 leading-relaxed text-lg">
+              ${product.howToUseTelugu}
+            </p>
+            <h4 class="text-xl font-semibold mb-3" style="color: #8B4513;">How to Use ${product.name}:</h4>
+            <p class="text-gray-700 leading-relaxed text-lg">
+              ${product.howToUseEnglish}
+            </p>
+            ` : ''}
+          </div>
+        </div>
+      `;
+      container.innerHTML = productDetailContent;
+
+      setupQuantityControls(product);
+    }
+
+    function backToProducts() {
+      // Hides product detail and shows the product grid and home section
+      const homeSection = document.getElementById("home");
+      document.getElementById("product-detail").classList.add("hidden");
+      document.getElementById("product-grid").style.display = ""; // Reset display to default
+      homeSection.style.display = ""; // Reset display to default
+      
+      // Scroll to the products section
+      const productsSection = document.getElementById("products");
+      if (productsSection) {
+        window.scrollTo({ top: productsSection.offsetTop - 80, behavior: "smooth" });
+      }
+    }
+
+    // Attach back button click listener
+    document.getElementById("back-button").onclick = backToProducts;
+
+    // Render product grid when the DOM is fully loaded
+    // document.addEventListener('DOMContentLoaded', renderProductGrid); // Moved to boot function
+
+    // ------------- Navigation (scroll and active menu) -------------
+    function scrollToSection(e, id) {
+      // Smoothly scrolls to a given section on the page
+      e.preventDefault();
+
+      // If product detail is open, close it first
+      const productDetail = document.getElementById("product-detail");
+      const productGrid = document.getElementById("product-grid");
+      const homeSection = document.getElementById("home");
+
+      if (productDetail && !productDetail.classList.contains("hidden")) {
+        // Product detail is open, restore normal view
+        productDetail.classList.add("hidden");
+        if (productGrid) productGrid.style.display = "";
+        if (homeSection) homeSection.style.display = "";
+      }
+
+      const section = document.getElementById(id);
+      if (section) {
+        // Adjust for sticky header height (80px)
+        window.scrollTo({ top: section.offsetTop - 80, behavior: "smooth" });
+      }
+      closeMobileMenu(); // Close mobile menu after navigation
+    }
+
+    // Attach click listeners to all desktop navigation links
+    document.querySelectorAll('a.nav-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const id = this.getAttribute('href').substring(1); // Get section ID from href
+        scrollToSection(e, id);
+      });
+    });
+
+    // --- Hamburger / Mobile menu ---
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenuBtn = document.getElementById("close-menu-btn");
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove("hidden");
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add("hidden");
+    }
+
+    // Attach click listeners for mobile menu buttons
+    if (hamburgerBtn) hamburgerBtn.onclick = openMobileMenu;
+    if (closeMenuBtn) closeMenuBtn.onclick = closeMobileMenu;
+    if (mobileMenu) {
+      // Attach click listeners for mobile menu navigation links
+      mobileMenu.querySelectorAll("a").forEach(link => {
+        link.onclick = function (e) {
+          const id = this.getAttribute("href").substring(1);
+          scrollToSection(e, id);
+        };
+      });
+    }
+
+    // Active nav link on scroll
+    function setActiveNavLink() {
+      // Highlights the active navigation link based on scroll position
+      const links = document.querySelectorAll('.nav-link');
+      let index = -1;
+      // Define sections in order and check scroll position
+      ["home", "products", "about", "contact"].forEach((sectionId, i) => {
+        const section = document.getElementById(sectionId);
+        // If scroll position is past the section start, mark it as current
+        if (section && window.scrollY >= section.offsetTop - 100) {
+          index = i;
+        }
+      });
+      // Toggle 'active' class on navigation links
+      links.forEach((l, i) => l.classList.toggle("active", i === index));
+    }
+
+    // Add scroll event listener to update active nav link and header shadow
+    window.addEventListener('scroll', function() {
+      setActiveNavLink();
+      // Add shadow to header when scrolled
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    setActiveNavLink(); // Call on load to set initial active link
+
+    // --- Gallery Filter Script ---
+    const galleryFilters = document.querySelectorAll('.gallery-filter');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryFilters.forEach(filter => {
+      filter.addEventListener('click', function() {
+        // Remove active class from all filters
+        galleryFilters.forEach(f => f.classList.remove('active'));
+        // Add active class to clicked filter
+        this.classList.add('active');
+
+        const filterValue = this.getAttribute('data-filter');
+
+        // Show/hide gallery items based on filter
+        galleryItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+
+          if (filterValue === 'all') {
+            item.classList.remove('hidden');
+          } else if (category === filterValue) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // --- Lightbox Script ---
+    function openLightbox(src, type) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-content');
+      const video = document.getElementById('lightbox-video');
+
+      if (type === 'photo') {
+        img.src = src;
+        img.style.display = 'block';
+        video.style.display = 'none';
+        video.pause();
+      } else if (type === 'video') {
+        video.querySelector('source').src = src;
+        video.load();
+        video.style.display = 'block';
+        img.style.display = 'none';
+      }
+
+      modal.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      const video = document.getElementById('lightbox-video');
+
+      modal.classList.remove('active');
+      video.pause();
+      video.currentTime = 0;
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+
+    document.getElementById('lightbox-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // --- Image Slideshow Script ---
+    let slideIndex = 1; // Current slide index (1-based)
+    let slideTimer; // Holds the setTimeout ID for auto-advance
+
+    function showSlides(n) {
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+
+      // Clear any existing auto-slide timer to prevent conflicts when manually navigating
+      clearTimeout(slideTimer);
+
+      // Update slideIndex
+      slideIndex = n;
+
+      // Wrap around slides (go to first if past last, go to last if before first)
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      if (slideIndex < 1) { slideIndex = slides.length }
+
+      // Hide all slides, deactivate all dots, and pause all videos
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+        if (dots[i]) dots[i].classList.remove('active');
+        // Pause videos when not active
+        if (slides[i].tagName === 'VIDEO') {
+          slides[i].pause();
+          slides[i].currentTime = 0;
+        }
+      }
+
+      // Show the current slide and activate its corresponding dot
+      if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].classList.add('active');
+        // Play video if the current slide is a video
+        if (slides[slideIndex - 1].tagName === 'VIDEO') {
+          slides[slideIndex - 1].play().catch(err => {
+            console.log('Video autoplay prevented:', err);
+          });
+        }
+      }
+      if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add('active');
+      }
+
+      // Restart the auto-slide timer for the next slide after 5 seconds
+      slideTimer = setTimeout(() => showSlides(slideIndex + 1), 5000); // Change slide every 5 seconds
+    }
+
+    function currentSlide(n) {
+      // Function to navigate to a specific slide (used by dots)
+      showSlides(slideIndex = n);
+    }
+
+    // Function to dynamically create dots for each slide
+    function createDots() {
+      const dotsContainer = document.getElementById("dots-container");
+      const slides = document.getElementsByClassName("mySlides");
+      if (dotsContainer && slides.length > 0) {
+        for (let i = 0; i < slides.length; i++) {
+          const dot = document.createElement("span");
+          dot.classList.add("dot");
+          dot.setAttribute("onclick", `currentSlide(${i + 1})`);
+          dotsContainer.appendChild(dot);
+        }
+      }
+    }
+
+    /********************
+     * CART FUNCTIONS
+     ********************/
+    function addToCart(id, qty = 1){
+      CART[id] = (CART[id] || 0) + qty;
+      if (CART[id] <= 0) delete CART[id];
+      save('cart', CART);
+      bumpCart();
+      renderCart();
+      openDrawer(); // Open drawer when item is added to cart
+    }
+
+    function addToCartFromDetail(productId) {
+        const quantityInput = document.getElementById("quantity");
+        const qty = parseInt(quantityInput.value);
+        if (qty > 0) {
+            addToCart(String(productId), qty); // Ensure productId is string, pass quantity
+        }
+    }
+
+    function updateQty(id, delta){ addToCart(id, delta); }
+
+    function removeItem(id){ delete CART[id]; save('cart', CART); renderCart(); bumpCart(); }
+
+    function cartEntries(){
+      return Object.entries(CART).map(([id, qty])=> {
+        const p = SHOP_PRODUCTS.find(x=>x.id===id); // Use SHOP_PRODUCTS
+        return p ? { ...p, qty, subtotal: p.price * qty } : null;
+      }).filter(Boolean);
+    }
+
+    function totals(){
+      const items = cartEntries();
+      const subtotal = items.reduce((a,c)=> a + c.subtotal, 0);
+      // Example shipping logic: Free for orders over ₹999, else ₹49. Adjust as needed.
+      const shipping = subtotal > 999 ? 0 : (items.length ? 49 : 0);
+      const grand = subtotal + shipping;
+      return { items, subtotal, shipping, grand };
+    }
+
+    function renderCart(){
+      const itemsWrap = qs('#cartItems');
+      const { items, subtotal, shipping, grand } = totals();
+      if(!items.length){
+        itemsWrap.innerHTML = '<p class="text-gray-600 text-center py-4">Your cart is empty.</p>';
+      } else {
+        itemsWrap.innerHTML = items.map(it => `
+          <div class="item">
+            <img src="${it.image}" alt="${it.title}" class="object-cover rounded-md" />
+            <div>
+              <div class="flex justify-between items-center gap-2">
+                <strong>${it.title}</strong>
+                <div class="text-green-700 font-semibold">${fmt(it.subtotal)}</div>
+              </div>
+              <div class="text-gray-600 text-sm mb-2">${fmt(it.price)} per ${products.find(p => String(p.id) === it.id)?.unit || 'unit'}</div>
+              <div class="qty" role="group" aria-label="Quantity chooser">
+                <button onclick="updateQty('${it.id}', -1)">−</button>
+                <span style="min-width:2ch;text-align:center">${it.qty}</span>
+                <button onclick="updateQty('${it.id}', +1)">+</button>
+                <button class="danger" style="margin-left:.5rem" onclick="removeItem('${it.id}')">Remove</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+      qs('#summary').innerHTML = `
+        <div class="flex justify-between items-center"><span class="text-gray-600">Subtotal</span><strong>${fmt(subtotal)}</strong></div>
+        <div class="flex justify-between items-center"><span class="text-gray-600">Shipping</span><strong>${shipping ? fmt(shipping) : 'Free'}</strong></div>
+        <div class="flex justify-between items-center border-t border-gray-400 pt-2 mt-2"><span>Total</span><strong>${fmt(grand)}</strong></div>
+      `;
+      bumpCart();
+    }
+
+    function bumpCart(){
+      const count = Object.values(CART).reduce((a,c)=>a+c,0);
+      qs('#cartCount').textContent = count;
+    }
+
+    /********************
+     * CHECKOUT (WhatsApp / Email — free)
+     ********************/
+    async function sendOrderToGoogleSheet(orderData) {
+        if (!SHOP_CONFIG.googleSheetWebAppUrl) {
+            console.warn('Google Sheet Web App URL is not set. Order will not be logged.');
+            return;
+        }
+        
+        try {
+            const response = await fetch(SHOP_CONFIG.googleSheetWebAppUrl, {
+                method: 'POST',
+                mode: 'no-cors', // Required for Google Apps Script Web App
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            });
+            // Due to 'no-cors' mode, we can't read the response directly.
+            // A successful request (even opaque) indicates the request was sent.
+            console.log('Order data sent to Google Sheet Web App.');
+        } catch (error) {
+            console.error('Error sending order to Google Sheet:', error);
+        }
+    }
+
+    async function processOrderSubmission() {
+        const { items, subtotal, shipping, grand } = totals();
+        const customerName = qs('#custName').value.trim();
+        const customerPhone = qs('#custPhone').value.trim();
+        const customerAddress = qs('#custAddress').value.trim();
+        const orderId = generateOrderId();
+
+        // 1. Prepare data for Google Sheets (Flattened structure)
+        // Headers: Timestamp | Order ID | Customer Name | Phone | Address | Products | Subtotal | Shipping | Total | Status
+        const orderDataForSheet = {
+            timestamp: new Date().toISOString(),
+            orderId: orderId,
+            customerName: customerName,
+            phone: customerPhone,
+            address: customerAddress,
+            products: items.map(item => `${item.title} (Qty: ${item.qty})`).join(', '),
+            subtotal: subtotal,
+            shipping: shipping,
+            total: grand,
+            status: 'Pending'
+        };
+
+        // 2. Send order to Google Sheet (don't block on this)
+        sendOrderToGoogleSheet(orderDataForSheet).catch(err => {
+            console.error('Failed to send to Google Sheets:', err);
+        });
+
+        // 3. Generate the text for WhatsApp/Email notification
+        const textLines = [
+            `🧾 New Order — ${SHOP_CONFIG.name} (Order ID: ${orderId})`,
+            '',
+            ...items.map(it => `• ${it.title} × ${it.qty} = ${fmt(it.subtotal)}`),
+            '',
+            `Subtotal: ${fmt(subtotal)}`,
+            `Shipping: ${shipping ? fmt(shipping) : 'Free'}`,
+            `Total: ${fmt(grand)}`,
+            '',
+            `Customer: ${customerName || '—'}`,
+            `Phone: ${customerPhone || '—'}`,
+            `Address: ${customerAddress || '—'}`,
+        ];
+        return textLines.join('\n');
+    }
+
+    function validateOrderForm(){
+      const customerName = qs('#custName').value.trim();
+      const customerPhone = qs('#custPhone').value.trim();
+      const customerAddress = qs('#custAddress').value.trim();
+      const { items } = totals();
+
+      console.log('Validating order form...');
+      console.log('Cart items:', items.length);
+      console.log('Customer Name:', customerName);
+      console.log('Customer Phone:', customerPhone);
+      console.log('Customer Address:', customerAddress);
+
+      if(items.length === 0){
+        console.log('Validation failed: Cart is empty');
+        showMessageBox('Your cart is empty! Please add items before checkout.');
+        return false;
+      }
+
+      if(!customerName){
+        console.log('Validation failed: No name');
+        showMessageBox('Please enter your full name.');
+        return false;
+      }
+
+      if(!customerPhone){
+        console.log('Validation failed: No phone');
+        showMessageBox('Please enter your phone number.');
+        return false;
+      }
+
+      // Basic phone number validation (10 digits)
+      const phoneRegex = /^[0-9]{10}$/;
+      const cleanPhone = customerPhone.replace(/[\s\-]/g, '');
+      console.log('Clean phone:', cleanPhone);
+      console.log('Phone regex test:', phoneRegex.test(cleanPhone));
+
+      if(!phoneRegex.test(cleanPhone)){
+        console.log('Validation failed: Invalid phone format');
+        showMessageBox('Please enter a valid 10-digit phone number.');
+        return false;
+      }
+
+      if(!customerAddress){
+        console.log('Validation failed: No address');
+        showMessageBox('Please enter your address with PIN code.');
+        return false;
+      }
+
+      console.log('Validation passed!');
+      return true;
+    }
+
+    async function completeCheckout(){
+      console.log('Complete Checkout clicked');
+
+      // Validate form first
+      if(!validateOrderForm()) {
+        console.log('Validation failed');
+        return;
+      }
+
+      console.log('Validation passed, processing order...');
+
+      // Get order message
+      const orderMessage = await processOrderSubmission();
+      const text = encodeURIComponent(orderMessage);
+
+      console.log('Order message prepared:', orderMessage);
+
+      // Send to both WhatsApp numbers
+      const phone1 = SHOP_CONFIG.ownerWhatsApp.replace(/[^0-9]/g,'');
+      const phone2 = SHOP_CONFIG.ownerWhatsApp2.replace(/[^0-9]/g,'');
+
+      console.log('WhatsApp Phone 1:', phone1);
+      console.log('WhatsApp Phone 2:', phone2);
+
+      // Always open WhatsApp first
+      if(phone1){
+        const url1 = `https://wa.me/${phone1}?text=${text}`;
+        console.log('Opening WhatsApp URL 1:', url1);
+        window.open(url1, '_blank');
+      }
+
+      // Small delay before opening second WhatsApp to avoid blocking
+      setTimeout(() => {
+        if(phone2){
+          const url2 = `https://wa.me/${phone2}?text=${text}`;
+          console.log('Opening WhatsApp URL 2:', url2);
+          window.open(url2, '_blank');
+        }
+      }, 500);
+
+      // Send email only if configured (optional)
+      if(SHOP_CONFIG.orderEmail){
+        setTimeout(() => {
+          const subject = encodeURIComponent(`New Order — ${SHOP_CONFIG.name}`);
+          const body = encodeURIComponent(orderMessage);
+          const emailUrl = `mailto:${SHOP_CONFIG.orderEmail}?subject=${subject}&body=${body}`;
+          console.log('Opening email client');
+          window.open(emailUrl, '_blank');
+        }, 1000);
+      }
+
+      // Cleanup after success
+      clearCartAndInputs();
+      showMessageBox('Your order has been placed successfully! Please check WhatsApp for confirmation.');
+      closeDrawer();
+    }
+
+    // Helper function to clear form after successful submission
+    function clearCartAndInputs() {
+      CART = {};
+      save('cart', CART);
+      renderCart();
+      qs('#custName').value = '';
+      qs('#custPhone').value = '';
+      qs('#custAddress').value = '';
+    }
+    /********************
+     * DRAWER
+     ********************/
+    const drawer = qs('#drawer');
+    function openDrawer(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); }
+    function closeDrawer(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+
+    /********************
+     * SCROLL REVEAL ANIMATION
+     ********************/
+    function initScrollReveal() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all product cards and sections
+      document.querySelectorAll('.product-card, section').forEach(el => {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+      });
+    }
+
+    /********************
+     * BOOTSTRAP
+     ********************/
+    function boot(){
+      qs('#year').textContent = new Date().getFullYear(); // Update year in footer
+
+      // Main event listeners
+      qs('#cartBtn').addEventListener('click', openDrawer);
+      qs('#closeDrawer').addEventListener('click', closeDrawer);
+      qs('#checkoutBtn').addEventListener('click', completeCheckout);
+
+      // Initial renders
+      renderProductGrid(); // Render main product grid
+      renderCart(); // Render cart content and update count
+      createDots(); // Create slideshow dots
+      const slides = document.getElementsByClassName("mySlides");
+      if (slides.length > 0) {
+        showSlides(slideIndex); // Start slideshow
+      }
+
+      // Initialize scroll reveal after a short delay
+      setTimeout(initScrollReveal, 300);
+    }
+    document.addEventListener('DOMContentLoaded', boot);
+
+  </script>
+</body>
+</html>
+
