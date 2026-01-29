@@ -1651,11 +1651,11 @@
       let productDetailContent = `
         <div class="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden max-w-5xl mx-auto">
           <!-- Product Image Section - Top -->
-          <div class="p-8 md:p-12 flex items-center justify-center bg-gradient-to-br from-green-50 to-teal-50">
-            <div class="relative">
-              <img src="${product.image}" alt="${product.name}" class="w-96 h-96 md:w-[450px] md:h-[450px] object-cover rounded-full border-8 border-white shadow-2xl lazy-image" loading="lazy">
-              <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg">
-                <span class="text-white text-2xl font-bold">★</span>
+          <div class="p-4 md:p-12 flex items-center justify-center bg-gradient-to-br from-green-50 to-teal-50">
+            <div class="relative inline-block">
+              <img src="${product.image}" alt="${product.name}" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[450px] md:h-[450px] object-cover rounded-full border-4 md:border-8 border-white shadow-2xl lazy-image" loading="lazy">
+              <div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg">
+                <span class="text-white text-lg md:text-2xl font-bold">★</span>
               </div>
             </div>
           </div>
@@ -1673,12 +1673,12 @@
             <p class="text-gray-500 text-sm mb-6">PRICES ARE INCLUSIVE OF ALL TAXES</p>
 
             <!-- Quantity Selector -->
-            <div class="flex items-center justify-center mb-8">
-              <label for="quantity" class="text-xl font-semibold text-gray-800 mr-4">Quantity (${product.unit}):</label>
-              <div class="flex items-center border-2 border-gray-300 rounded-lg overflow-hidden">
-                <button id="decrement-quantity" class="px-5 py-3 text-gray-700 hover:bg-gray-100 text-2xl font-bold focus:outline-none transition" style="background-color: #F5F0DB;">-</button>
-                <input type="number" id="quantity" name="quantity" value="1" min="1" class="w-20 text-center py-3 text-xl font-semibold focus:outline-none border-l-2 border-r-2 border-gray-300">
-                <button id="increment-quantity" class="px-5 py-3 text-gray-700 hover:bg-gray-100 text-2xl font-bold focus:outline-none transition" style="background-color: #F5F0DB;">+</button>
+            <div class="flex flex-col md:flex-row items-center justify-center mb-8 gap-3 md:gap-0">
+              <label for="quantity" class="text-lg md:text-xl font-semibold text-gray-800 md:mr-4">Quantity (${product.unit}):</label>
+              <div class="flex items-center border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+                <button id="decrement-quantity" class="px-4 md:px-5 py-2 md:py-3 text-gray-700 hover:bg-gray-100 text-xl md:text-2xl font-bold focus:outline-none transition" style="background-color: #F5F0DB;">-</button>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" class="w-16 md:w-20 text-center py-2 md:py-3 text-lg md:text-xl font-semibold focus:outline-none border-l-2 border-r-2 border-gray-300">
+                <button id="increment-quantity" class="px-4 md:px-5 py-2 md:py-3 text-gray-700 hover:bg-gray-100 text-xl md:text-2xl font-bold focus:outline-none transition" style="background-color: #F5F0DB;">+</button>
               </div>
             </div>
 
